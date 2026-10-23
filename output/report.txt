@@ -1,0 +1,195 @@
+Structural code-compliance check
+Project: five-storey RC frame office building, Suizhou (final year design)
+
+
+[1. Column axial compression ratio]
+  rule: value <= limit
+
+    item         value         limit    margin  status
+    --  ------------  ------------  --------  ------
+    A柱          0.37          0.85     56.5%  PASS
+    B柱          0.42          0.85     50.6%  PASS
+    C柱          0.42          0.85     50.6%  PASS
+    D柱          0.37          0.85     56.5%  PASS
+  -> 4 rows | 4 pass | 0 fail
+
+[2. Inter-storey drift angle]
+  rule: value <= limit (1/550)
+
+    item             value         limit    margin  status
+    --------  ------------  ------------  --------  ------
+    storey 1    0.00019429     0.0018181     89.3%  PASS
+    storey 2    0.00010303     0.0018181     94.3%  PASS
+    storey 3     7.879e-05     0.0018181     95.7%  PASS
+    storey 4     5.455e-05     0.0018181     97.0%  PASS
+    storey 5     2.727e-05     0.0018181     98.5%  PASS
+  -> 5 rows | 5 pass | 0 fail
+
+[3. Beam steel provided vs required]
+  rule: As_provided >= As_req
+
+    item            value         limit    margin  status
+    -------  ------------  ------------  --------  ------
+    5F AB 左          1140        221.18    415.4%  PASS
+    5F AB 左        1140.4          2.02  56355.4%  PASS
+    5F AB 中        1140.4        429.34    165.6%  PASS
+    5F AB 右        1140.4        286.46    298.1%  PASS
+    5F AB 右        1140.4         79.94   1326.6%  PASS
+    5F BC 左        1140.4         159.9    613.2%  PASS
+    5F BC 左        1140.4          1.42  80209.7%  PASS
+    5F BC 中        1140.4         100.5   1034.7%  PASS
+    5F BC 右        1140.4         159.9    613.2%  PASS
+    5F BC 右        1140.4          1.42  80209.7%  PASS
+    5F BC 左        1140.4        286.46    298.1%  PASS
+    5F BC 左        1140.4         79.94   1326.6%  PASS
+    5F BC 中        1140.4        429.34    165.6%  PASS
+    5F BC 右        1140.4        221.18    415.6%  PASS
+    5F BC 右        1140.4          2.02  56355.4%  PASS
+    4F AB 左          1140        458.82    148.5%  PASS
+    4F AB 左        1140.4         69.99   1529.4%  PASS
+    4F AB 中        1140.4        419.33    172.0%  PASS
+    4F AB 右        1140.4        402.88    183.1%  PASS
+    4F AB 右        1140.4         20.75   5395.9%  PASS
+    4F BC 左        1140.4        275.44    314.0%  PASS
+    4F BC 左        1140.4        155.64    632.7%  PASS
+    4F BC 中        1140.4         52.37   2077.6%  PASS
+    4F BC 右        1140.4        275.44    314.0%  PASS
+    4F BC 右        1140.4        155.64    632.7%  PASS
+    4F BC 左        1140.4        402.88    183.1%  PASS
+    4F BC 左        1140.4         20.75   5395.9%  PASS
+    4F BC 中        1140.4        419.33    172.0%  PASS
+    4F BC 右        1140.4        458.82    148.6%  PASS
+    4F BC 右        1140.4         69.99   1529.4%  PASS
+    3F AB 左          1140        596.64     91.1%  PASS
+    3F AB 左        1140.4        206.43    452.4%  PASS
+    3F AB 中        1140.4        425.71    167.9%  PASS
+    3F AB 右        1140.4        497.66    129.2%  PASS
+    3F AB 右        1140.4         69.36   1544.2%  PASS
+    3F BC 左        1140.4        388.04    193.9%  PASS
+    3F BC 左        1140.4         260.9    337.1%  PASS
+    3F BC 中        1140.4         54.66   1986.3%  PASS
+    3F BC 右        1140.4        388.04    193.9%  PASS
+    3F BC 右        1140.4         260.9    337.1%  PASS
+    3F BC 左        1140.4        497.66    129.2%  PASS
+    3F BC 左        1140.4         69.36   1544.2%  PASS
+    3F BC 中        1140.4        425.71    167.9%  PASS
+    3F BC 右        1140.4        596.64     91.1%  PASS
+    3F BC 右        1140.4        206.43    452.4%  PASS
+    2F AB 左          1140         719.3     58.5%  PASS
+    2F AB 左        1140.4        321.63    254.6%  PASS
+    2F AB 中        1140.4        428.04    166.4%  PASS
+    2F AB 右        1140.4         599.4     90.3%  PASS
+    2F AB 右        1140.4        163.66    596.8%  PASS
+    2F BC 左        1140.4        506.95    125.0%  PASS
+    2F BC 左        1140.4        374.22    204.7%  PASS
+    2F BC 中        1140.4         55.17   1967.1%  PASS
+    2F BC 右        1140.4        506.95    125.0%  PASS
+    2F BC 右        1140.4        374.22    204.7%  PASS
+    2F BC 左        1140.4         599.4     90.3%  PASS
+    2F BC 左        1140.4        163.66    596.8%  PASS
+    2F BC 中        1140.4        428.04    166.4%  PASS
+    2F BC 右        1140.4         719.3     58.5%  PASS
+    2F BC 右        1140.4        321.63    254.6%  PASS
+    1F AB 左          1140        952.34     19.7%  PASS
+    1F AB 左        1140.4        584.73     95.0%  PASS
+    1F AB 中        1140.4        441.61    158.2%  PASS
+    1F AB 右        1140.4        775.56     47.0%  PASS
+    1F AB 右        1140.4        365.74    211.8%  PASS
+    1F BC 左        1140.4        714.18     59.7%  PASS
+    1F BC 左        1140.4        570.57     99.9%  PASS
+    1F BC 中        1140.4         61.06   1767.7%  PASS
+    1F BC 右        1140.4        714.18     59.7%  PASS
+    1F BC 右        1140.4        570.57     99.9%  PASS
+    1F BC 左        1140.4        775.56     47.0%  PASS
+    1F BC 左        1140.4        365.74    211.8%  PASS
+    1F BC 中        1140.4        441.61    158.2%  PASS
+    1F BC 右        1140.4        952.34     19.7%  PASS
+    1F BC 右        1140.4        584.73     95.0%  PASS
+  -> 75 rows | 75 pass | 0 fail
+
+[4. Beam steel required vs minimum]
+  rule: As_req >= As_min (below = minimum-governed)
+
+    item            value         limit    margin  status
+    -------  ------------  ------------  --------  ------
+    5F AB 左        221.18           375    -41.0%  NOTE
+    5F AB 左          2.02           375    -99.5%  NOTE
+    5F AB 中        429.34           300     43.1%  PASS
+    5F AB 右        286.46           375    -23.6%  NOTE
+    5F AB 右         79.94           375    -78.7%  NOTE
+    5F BC 左         159.9           250    -36.0%  NOTE
+    5F BC 左          1.42           250    -99.4%  NOTE
+    5F BC 中         100.5           200    -49.8%  NOTE
+    5F BC 右         159.9           250    -36.0%  NOTE
+    5F BC 右          1.42           250    -99.4%  NOTE
+    5F BC 左        286.46           375    -23.6%  NOTE
+    5F BC 左         79.94           375    -78.7%  NOTE
+    5F BC 中        429.34           300     43.1%  PASS
+    5F BC 右        221.18           375    -41.0%  NOTE
+    5F BC 右          2.02           375    -99.5%  NOTE
+    4F AB 左        458.82           375     22.4%  PASS
+    4F AB 左         69.99           375    -81.3%  NOTE
+    4F AB 中        419.33           300     39.8%  PASS
+    4F AB 右        402.88           375      7.4%  PASS
+    4F AB 右         20.75           375    -94.5%  NOTE
+    4F BC 左        275.44           250     10.2%  PASS
+    4F BC 左        155.64           250    -37.7%  NOTE
+    4F BC 中         52.37           200    -73.8%  NOTE
+    4F BC 右        275.44           250     10.2%  PASS
+    4F BC 右        155.64           250    -37.7%  NOTE
+    4F BC 左        402.88           375      7.4%  PASS
+    4F BC 左         20.75           375    -94.5%  NOTE
+    4F BC 中        419.33           300     39.8%  PASS
+    4F BC 右        458.82           375     22.4%  PASS
+    4F BC 右         69.99           375    -81.3%  NOTE
+    3F AB 左        596.64           375     59.1%  PASS
+    3F AB 左        206.43           375    -45.0%  NOTE
+    3F AB 中        425.71           300     41.9%  PASS
+    3F AB 右        497.66           375     32.7%  PASS
+    3F AB 右         69.36           375    -81.5%  NOTE
+    3F BC 左        388.04           250     55.2%  PASS
+    3F BC 左         260.9           250      4.4%  PASS
+    3F BC 中         54.66           200    -72.7%  NOTE
+    3F BC 右        388.04           250     55.2%  PASS
+    3F BC 右         260.9           250      4.4%  PASS
+    3F BC 左        497.66           375     32.7%  PASS
+    3F BC 左         69.36           375    -81.5%  NOTE
+    3F BC 中        425.71           300     41.9%  PASS
+    3F BC 右        596.64           375     59.1%  PASS
+    3F BC 右        206.43           375    -45.0%  NOTE
+    2F AB 左         719.3           375     91.8%  PASS
+    2F AB 左        321.63           375    -14.2%  NOTE
+    2F AB 中        428.04           300     42.7%  PASS
+    2F AB 右         599.4           375     59.8%  PASS
+    2F AB 右        163.66           375    -56.4%  NOTE
+    2F BC 左        506.95           250    102.8%  PASS
+    2F BC 左        374.22           250     49.7%  PASS
+    2F BC 中         55.17           200    -72.4%  NOTE
+    2F BC 右        506.95           250    102.8%  PASS
+    2F BC 右        374.22           250     49.7%  PASS
+    2F BC 左         599.4           375     59.8%  PASS
+    2F BC 左        163.66           375    -56.4%  NOTE
+    2F BC 中        428.04           300     42.7%  PASS
+    2F BC 右         719.3           375     91.8%  PASS
+    2F BC 右        321.63           375    -14.2%  NOTE
+    1F AB 左        952.34           375    154.0%  PASS
+    1F AB 左        584.73           375     55.9%  PASS
+    1F AB 中        441.61           300     47.2%  PASS
+    1F AB 右        775.56           375    106.8%  PASS
+    1F AB 右        365.74           375     -2.5%  NOTE
+    1F BC 左        714.18           250    185.7%  PASS
+    1F BC 左        570.57           250    128.2%  PASS
+    1F BC 中         61.06           200    -69.5%  NOTE
+    1F BC 右        714.18           250    185.7%  PASS
+    1F BC 右        570.57           250    128.2%  PASS
+    1F BC 左        775.56           375    106.8%  PASS
+    1F BC 左        365.74           375     -2.5%  NOTE
+    1F BC 中        441.61           300     47.2%  PASS
+    1F BC 右        952.34           375    154.0%  PASS
+    1F BC 右        584.73           375     55.9%  PASS
+  -> 75 rows | 42 pass | 0 fail | 33 note
+SUMMARY
+  rows checked : 159
+  passed       : 126
+  failed       : 0
+  notes        : 33
